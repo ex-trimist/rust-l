@@ -8,12 +8,12 @@ fn main() {
     // println!("The secret number is: {secret_number}");
     loop {
         println!("Please input your guess.");
-        let mut guess = String::new();
+        let mut guess: String = String::new();
         io::stdin() // io::stdin()  
             .read_line(&mut guess)
             .expect("Failed to read line");
         // let guess: u32 = guess.trim().parse().expect("Please type a number!"); // shadowing guess
-        let guess: u32 = match guess.trim().parse() {
+        let guess: u32 = match guess.trim().parse() { // shadowing
             Ok(num) => num,
             Err(_) => break,
         };
